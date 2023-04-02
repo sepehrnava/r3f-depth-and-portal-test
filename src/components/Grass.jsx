@@ -28,5 +28,48 @@ export default function Grass() {
     gltf.scene.children[0].name = "grass";
   }, [gltf]);
 
-  return <primitive object={gltf.scene} />;
+  return (
+    <group dispose={null}>
+      <mesh
+        geometry={gltf.nodes.Grass.geometry}
+        material={gltf.materials["Material.008"]}
+        position={[
+          portalBottomPos.x - 10,
+          portalBottomPos.y - 7,
+          portalBottomPos.z - 5,
+        ]}
+        rotation={[1.3, 0.58, -Math.PI / 2]}
+      />
+      <mesh
+        geometry={gltf.nodes.Grass.geometry}
+        material={gltf.materials["Material.008"]}
+        position={[
+          portalBottomPos.x - 1,
+          portalBottomPos.y - 7,
+          portalBottomPos.z - 5,
+        ]}
+        rotation={[1.3, 0.58, -Math.PI / 2]}
+      />
+      <mesh
+        geometry={gltf.nodes.Grass.geometry}
+        material={gltf.materials["Material.008"]}
+        position={[
+          portalBottomPos.x - 20,
+          portalBottomPos.y - 7,
+          portalBottomPos.z - 5,
+        ]}
+        rotation={[1.3, 0.58, -Math.PI / 2]}
+      />
+      <mesh
+        geometry={gltf.nodes.Grass.geometry}
+        material={gltf.materials["Material.008"]}
+        position={[
+          portalBottomPos.x + 6,
+          portalBottomPos.y - 7,
+          portalBottomPos.z - 5,
+        ]}
+        rotation={[1.3, 0.58, -Math.PI / 2]}
+      />
+    </group>
+  );
 }
