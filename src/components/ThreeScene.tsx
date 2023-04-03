@@ -3,7 +3,7 @@ import SceneContainer from "./SceneContainer";
 
 export default function ThreeScene() {
   return (
-    <Canvas>
+    <Canvas shadows={true} gl={{ antialias: true }}>
       <SceneContainer />
     </Canvas>
   );

@@ -19,11 +19,11 @@ export default function Grass() {
     gltf.scene.children[0].material.emissive = new Color(0.5, 0.5, 0.5);
     gltf.scene.children[0].material.side = DoubleSide;
     gltf.scene.children[0].scale.setScalar(0.7);
-    gltf.scene.children[0].position.set(
-      portalBottomPos.x - 6,
-      portalBottomPos.y - 7,
-      portalBottomPos.z - 5
-    );
+    // gltf.scene.children[0].position.set(
+    //   portalBottomPos.x - 6,
+    //   portalBottomPos.y - 7,
+    //   portalBottomPos.z - 5
+    // );
     // eslint-disable-next-line react-hooks/exhaustive-deps
     gltf.scene.children[0].name = "grass";
   }, [gltf]);
@@ -33,42 +33,23 @@ export default function Grass() {
       <mesh
         geometry={gltf.nodes.Grass.geometry}
         material={gltf.materials["Material.008"]}
-        position={[
-          portalBottomPos.x - 10,
-          portalBottomPos.y - 7,
-          portalBottomPos.z - 5,
-        ]}
-        rotation={[1.3, 0.58, -Math.PI / 2]}
+        name="grass"
+        position={[-14.3, -10.449, 15]}
+        rotation={[0.98, -0.49, 0.28]}
       />
       <mesh
         geometry={gltf.nodes.Grass.geometry}
         material={gltf.materials["Material.008"]}
-        position={[
-          portalBottomPos.x - 1,
-          portalBottomPos.y - 7,
-          portalBottomPos.z - 5,
-        ]}
-        rotation={[1.3, 0.58, -Math.PI / 2]}
+        name="grass2"
+        position={[23.8, -15.5, -3.2]}
+        rotation={[0.98, -0.49, 0.28]}
       />
       <mesh
         geometry={gltf.nodes.Grass.geometry}
         material={gltf.materials["Material.008"]}
-        position={[
-          portalBottomPos.x - 20,
-          portalBottomPos.y - 7,
-          portalBottomPos.z - 5,
-        ]}
-        rotation={[1.3, 0.58, -Math.PI / 2]}
-      />
-      <mesh
-        geometry={gltf.nodes.Grass.geometry}
-        material={gltf.materials["Material.008"]}
-        position={[
-          portalBottomPos.x + 6,
-          portalBottomPos.y - 7,
-          portalBottomPos.z - 5,
-        ]}
-        rotation={[1.3, 0.58, -Math.PI / 2]}
+        name="grass3"
+        position={[-5.7, -13.1, -10.6]}
+        rotation={[0.98, -0.49, 0.28]}
       />
     </group>
   );

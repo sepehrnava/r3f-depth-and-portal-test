@@ -5,8 +5,11 @@ import { TextureLoader } from "three/src/loaders/TextureLoader";
 
 const SphereBackground = () => {
   // const textureCandao = useLoader(TextureLoader, "/textures/T02.png");
-  const textureCandao = useLoader(TextureLoader, "/textures/kandao3.jpg");
-  const textureCandaoDepthMap = useLoader(TextureLoader, "/textures/kandao3_depthmap.jpg");
+  const textureCandao = useLoader(TextureLoader, "/textures/kandao3.webp");
+  const textureCandaoDepthMap = useLoader(
+    TextureLoader,
+    "/textures/kandao3_depthmap.webp"
+  );
   const sphere = useRef<Mesh<any>>(null);
   useEffect(() => {
     if (textureCandao.isTexture) {

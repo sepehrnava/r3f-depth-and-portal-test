@@ -38,11 +38,14 @@ function Portal() {
       target.current.setSize(window.innerWidth, window.innerHeight);
     });
     // texture inside portal
-    scene.current.background = new TextureLoader().load("/textures/T004.jpg", (texture) => {
-      texture.encoding = LinearEncoding;
-      texture.mapping = EquirectangularReflectionMapping;
-      // texture.magFilter = new TextureFilter()
-    });
+    scene.current.background = new TextureLoader().load(
+      "/textures/T004.jpg",
+      (texture) => {
+        texture.encoding = LinearEncoding;
+        texture.mapping = EquirectangularReflectionMapping;
+        // texture.magFilter = new TextureFilter()
+      }
+    );
   }, [target]);
 
   useFrame((state) => {
@@ -60,7 +63,14 @@ function Portal() {
 
     portalMesh.traverse((child) => {
       if (child.name === "peak" && portalRef.current) {
-        change("portalPeakPos", new Vector3(child.position.x, child.position.y - 0.4, portalRef.current.position.z - 0.0));
+        change(
+          "portalPeakPos",
+          new Vector3(
+            child.position.x,
+            child.position.y - 0.4,
+            portalRef.current.position.z - 0.0
+          )
+        );
       } else if (child.name === "portal_plane") {
         const portalPlane = child;
         portalPlane.material.transparent = false;
@@ -73,7 +83,8 @@ function Portal() {
       }
     });
 
-    if (portalRef.current?.position) change("portalBottomPos", portalRef.current.position);
+    if (portalRef.current?.position)
+      change("portalBottomPos", portalRef.current.position);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [portalMesh]);
@@ -82,8 +93,9 @@ function Portal() {
     <group
       name="portal_door"
       ref={portalRef}
-      position={[0, -7, -10]}
-      scale={3}
+      position={[-26.6, 0.3, 30]}
+      scale={[6, 7, 5]}
+      rotation={[0, -0.87, 0]}
       onPointerEnter={() => (document.body.style.cursor = "pointer")}
       onPointerLeave={() => (document.body.style.cursor = "auto")}
     >

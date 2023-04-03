@@ -1,7 +1,17 @@
 import { memo, useEffect, useRef } from "react";
 import { OrbitControls, PerspectiveCamera, Float } from "@react-three/drei";
 import { Suspense } from "react";
-import { BackSide, BufferGeometry, Color, CylinderGeometry, Material, Mesh, MeshBasicMaterial, NearestFilter, Vector3 } from "three";
+import {
+  BackSide,
+  BufferGeometry,
+  Color,
+  CylinderGeometry,
+  Material,
+  Mesh,
+  MeshBasicMaterial,
+  NearestFilter,
+  Vector3,
+} from "three";
 import Ocean from "./Ocean";
 import SkyBox from "./Sky";
 import FloatingIsland from "./FloatingIsland";
@@ -40,13 +50,26 @@ function SceneContainer() {
 
   return (
     <Suspense fallback={null}>
-      <PerspectiveCamera makeDefault fov={50} aspect={window.innerWidth / window.innerHeight} near={0.1} far={10000} position={[-2, -3, 20]} rotation={[0, 0, 0]} />
-      <OrbitControls target={[0, -2, 0]} maxPolarAngle={Math.PI * 0.5} />
+      <PerspectiveCamera
+        makeDefault
+        fov={50}
+        aspect={window.innerWidth / window.innerHeight}
+        near={0.1}
+        far={10000}
+        position={[29.3, 0.5, -12]}
+        rotation={[0, 0, 0]}
+      />
+      <OrbitControls target={[0, 0, 0]} maxPolarAngle={Math.PI * 0.5} />
 
       {/* <Ocean /> */}
       <SkyBox />
 
-      <Float speed={0} rotationIntensity={0.6} floatIntensity={0.6} position={[0, 1, 0]}>
+      <Float
+        speed={1}
+        rotationIntensity={0.6}
+        floatIntensity={0.6}
+        position={[0, 1, 0]}
+      >
         <primitive object={mesh} />
         {/* <ambientLight intensity={0.5} /> */}
         <spotLight
@@ -59,7 +82,7 @@ function SceneContainer() {
           intensity={0.3}
           color={lightColor}
           position={[1.19, 10.85, -4.45]}
-          target-position={[0, 0, -1]}
+          target-position={[0, 0, 0]}
         />
 
         <Portal />
